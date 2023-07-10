@@ -1,1 +1,1 @@
-Project 0x00. Python - Hello, World
+A new repository for high level programming
