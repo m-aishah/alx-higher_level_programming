@@ -20,6 +20,8 @@ listint_t *insert_node(listint_t **head, int number)
 	newNode->n = number;
 	newNode->next = NULL;
 
+	if (*head == NULL)
+		*head = newNode;
 	while (traverse1->n < number && traverse1->next != NULL)
 	{
 		traverse2 = traverse1;
@@ -28,6 +30,11 @@ listint_t *insert_node(listint_t **head, int number)
 
 	if (traverse1->next == NULL)
 		add_nodeint_end(head, number);
+	else if (traverse1 == traverse2)
+	{
+		*head = newNode;
+		newNode->next = traverse1;
+	}
 	else
 	{
 		traverse2->next = newNode;
