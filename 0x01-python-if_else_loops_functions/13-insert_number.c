@@ -21,7 +21,10 @@ listint_t *insert_node(listint_t **head, int number)
 	newNode->next = NULL;
 
 	if (*head == NULL)
+	{
 		*head = newNode;
+		return (newNode);
+	}
 	while (traverse1->n < number && traverse1->next != NULL)
 	{
 		traverse2 = traverse1;
