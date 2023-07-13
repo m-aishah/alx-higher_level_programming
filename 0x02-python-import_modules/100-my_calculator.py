@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 if __name__ == "__main__":
     from sys import exit, argv
+    from calculator_1 import add, sub, mul, div
 
     number_of_arguments = len(argv) - 1
 
@@ -8,15 +9,15 @@ if __name__ == "__main__":
         print("Usage: ./100-my_calculator.py <a> <operator> <b>")
         exit(1)
 
-    a, operator, b = argv[1], argv[2], argv[3]
+    a, operator, b = int(argv[1]), argv[2], int(argv[3])
     if (operator == '+'):
-        result = int(a) + int(b)
+        result = add(a, b)
     elif (operator == '-'):
-        result = int(a) - int(b)
+        result = sub(a, b)
     elif (operator == '*'):
-        result = int(a) * int(b)
+        result = mul(a, b)
     elif (operator == '/'):
-        result = int(a) / int(b)
+        result = div(a, b)
     else:
         print("Unknown operator. Available operators: +, -, * and /")
         exit(1)
