@@ -9,18 +9,18 @@ if __name__ == "__main__":
         exit(1)
 
     a, operator, b = argv[1], argv[2], argv[3]
-    match operator:
-        case '+':
-            result = int(a) + int(b)
-        case '-':
-            result = int(a) - int(b)
-        case '*':
-            result = int(a) * int(b)
-        case '/':
-            result = int(a) / int(b)
-        case '_':
-            print("Unknown operator. Available operators: +, -, * and /")
-            exit(1)
+    if (operator == '+'):
+        result = int(a) + int(b)
+    elif (operator == '-'):
+        result = int(a) - int(b)
+    elif (operator == '*'):
+        result = int(a) * int(b)
+    elif (operator == '/'):
+        result = int(a) / int(b)
+    else:
+        print("Unknown operator. Available operators: +, -, * and /")
+        exit(1)
 
     print("{} {} {} = {}" .format(a, operator, b, result))
     exit(0)
+
