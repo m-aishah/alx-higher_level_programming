@@ -1,2 +1,2 @@
-#!/bin/bash
-python3 -c "import os; os.write(1, b'#pythoniscool\n')"
+#!/usr/bin/python3
+__import__("os").write(1, b'#pythoniscool\n')
