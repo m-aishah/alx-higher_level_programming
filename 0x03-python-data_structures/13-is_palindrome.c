@@ -10,21 +10,25 @@ int is_palindrome(listint_t **head)
     int index = 0;
 
     if (*head == NULL)
-        return (0);
+        return (1);
 
     traverse = *head;
-printf("%d", traverse->n);    
-while (traverse->next != NULL)
+    while (traverse->next != NULL)
     {
         forward[index] = traverse->n;
         index++;
+        traverse = traverse->next;
     }
-printf("%s", forward);
     forward[index] = traverse->n;
+    forward[index + 1] = '\0';
     for (index = 0; forward[index]; index++)
     {
-        backward[index] = forward[strlen(forward) - index];
+        backward[index] = forward[strlen(forward) - index - 1];
     }
+    backward[index] = '\0';
 
-    return (strcmp(forward, backward));
+    if (!(strcmp(forward, backward)))
+        return (1);
+    else
+        return (0);
 }
