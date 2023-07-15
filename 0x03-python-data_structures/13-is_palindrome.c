@@ -15,11 +15,11 @@ int is_palindrome(listint_t **head)
 	traverse = *head;
 	while (traverse->next != NULL)
 	{
-		forward[index] = traverse->n;
+		forward[index] = traverse->n + '0';
 		index++;
 		traverse = traverse->next;
 	}
-	forward[index] = traverse->n;
+	forward[index] = traverse->n + '0';
 	forward[index + 1] = '\0';
 	for (index = 0; forward[index]; index++)
 	{
