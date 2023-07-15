@@ -11,11 +11,13 @@
  *		1 if it is a palindrome
  */
 
+int intCmp(int a[], int b[], int length);
+
 int is_palindrome(listint_t **head)
 {
 	listint_t *traverse;
-	char forward[1024], backward[1024];
-	int index = 0;
+	int forward[1024], backward[1024];
+	int index = 0, length;
 
 	if (*head == NULL || (*head)->next == NULL)
 		return (1);
@@ -28,16 +30,23 @@ int is_palindrome(listint_t **head)
 		traverse = traverse->next;
 	}
 	forward[index] = traverse->n;
-	forward[index + 1] = '\0';
-printf("%s", forward);
+	length = index + 1;
 	for (index = 0; forward[index]; index++)
 	{
-		backward[index] = forward[strlen(forward) - index - 1];
+		backward[index] = forward[length - index - 1];
 	}
-	backward[index] = '\0';
-printf("%s", backward);
-	if (!(strcmp(forward, backward)))
-		return (1);
-	else
-		return (0);
+	
+	return intCmp(forward, backward, length);
+}
+
+int intCmp(int a[], int b[], int length)
+{
+    int i;
+
+    for (i = 0; i < length; i++)
+    {
+        if (a[i] != b[i])
+            return (0);
+    }
+    return (1);
 }
