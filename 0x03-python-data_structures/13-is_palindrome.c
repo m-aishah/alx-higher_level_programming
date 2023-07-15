@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include "lists.h"
 
+int intCmp(int a[], int b[], int length);
 /**
  * is_palindrome - a function in C that checks
  *		if a singly linked list is a palindrome
@@ -10,8 +11,6 @@
  * Return: 0 if it is not a palindrome,
  *		1 if it is a palindrome
  */
-
-int intCmp(int a[], int b[], int length);
 
 int is_palindrome(listint_t **head)
 {
@@ -35,18 +34,27 @@ int is_palindrome(listint_t **head)
 	{
 		backward[index] = forward[length - index - 1];
 	}
-	
-	return intCmp(forward, backward, length);
+
+	return (intCmp(forward, backward, length));
 }
+
+/**
+ * intCmp - A function to compare 2 integer arrays
+ * @a: First array
+ * @b: second array
+ * @length: Length of the arrays
+ * Return: 1, if the integers are the same
+ *	0- otherwise
+ */
 
 int intCmp(int a[], int b[], int length)
 {
-    int i;
+	int i;
 
-    for (i = 0; i < length; i++)
-    {
-        if (a[i] != b[i])
-            return (0);
-    }
-    return (1);
+	for (i = 0; i < length; i++)
+	{
+		if (a[i] != b[i])
+		return (0);
+	}
+	return (1);
 }
