@@ -3,6 +3,14 @@
 #include <stdio.h>
 #include "lists.h"
 
+/**
+ * is_palindrome - a function in C that checks
+ *		if a singly linked list is a palindrome
+ * @head: pointer to pointer of first node of listint_t list
+ * Return: 0 if it is not a palindrome,
+ *		1 if it is a palindrome
+ */
+
 int is_palindrome(listint_t **head)
 {
 	listint_t *traverse;
@@ -11,7 +19,7 @@ int is_palindrome(listint_t **head)
 
 	if (*head == NULL)
 		return (1);
-	
+
 	traverse = *head;
 	while (traverse->next != NULL)
 	{
@@ -26,7 +34,7 @@ int is_palindrome(listint_t **head)
 		backward[index] = forward[strlen(forward) - index - 1];
 	}
 	backward[index] = '\0';
-    
+
 	if (!(strcmp(forward, backward)))
 		return (1);
 	else
