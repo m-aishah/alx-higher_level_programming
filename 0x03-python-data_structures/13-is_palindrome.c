@@ -9,24 +9,25 @@ int is_palindrome(listint_t **head)
 	char forward[1024], backward[1024];
 	int index = 0;
 
-	if (*head == NULL)
+	if (*head == NULL || (*head)->next == NULL)
 		return (1);
 	
 	traverse = *head;
 	while (traverse->next != NULL)
 	{
-		forward[index] = traverse->n + '0';
+		forward[index] = traverse->n;
 		index++;
 		traverse = traverse->next;
 	}
-	forward[index] = traverse->n + '0';
+	forward[index] = traverse->n;
 	forward[index + 1] = '\0';
+printf("%s", forward);
 	for (index = 0; forward[index]; index++)
 	{
 		backward[index] = forward[strlen(forward) - index - 1];
 	}
 	backward[index] = '\0';
-    
+printf("%s", backward);
 	if (!(strcmp(forward, backward)))
 		return (1);
 	else
