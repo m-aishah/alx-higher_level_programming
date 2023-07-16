@@ -18,7 +18,7 @@ int is_palindrome(listint_t **head)
 	int forward[1024], backward[1024];
 	int index = 0, length;
 
-	if (*head == NULL || (*head)->next == NULL)
+	if (*head == NULL || !(*head))
 		return (1);
 
 	traverse = *head;
