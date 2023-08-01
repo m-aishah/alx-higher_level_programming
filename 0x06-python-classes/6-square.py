@@ -33,10 +33,12 @@ class Square:
 
     @property
     def position(self):
+        """Get the current position of the square"""
         return self.__position
 
     @position.setter
     def position(self, value):
+        """Set te position of the square"""
         if (not(isinstance(value, tuple)) or
                 len(value) != 2 or
                 not all(isinstance(num, int) for num in value) or
