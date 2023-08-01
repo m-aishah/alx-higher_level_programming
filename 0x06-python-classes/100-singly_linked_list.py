@@ -69,12 +69,12 @@ class SinglyLinkedList:
             self.__head = new_node
             return
         else:
-            traverse1 = self.__head
-            while (traverse1 is not None and value > traverse1.data):
-                traverse2 = traverse1
-                traverse1 = traverse1.next_node
-            traverse2.next_node = new_node
-            new_node.next_node = traverse1
+            tmp = self.__head
+            while (tmp.next_node is not None and
+                    tmp.next_node.data < value):
+                tmp = tmp.next_node
+            new_node.next_node = tmp.next_node
+            tmp.next_node = new_node
 
     def __str__(self):
         """prints each node of the SinglyLinkedList"""
