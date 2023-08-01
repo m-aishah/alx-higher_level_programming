@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """MagicClass class gotten from interpreting bytecodes provided by ALX"""
 
+
 import math
 
 
@@ -13,7 +14,7 @@ class MagicClass:
         Arg:
             radius (int): radius of the current instance of the class.
         """
-        if not isinstance(radius, int):
+        if not isinstance(radius, int) and not isinstance(radius, float):
             raise TypeError('radius must be a number')
         self.__radius = radius
 
