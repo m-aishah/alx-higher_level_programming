@@ -37,7 +37,7 @@ class Rectangle:
     def height(self, value):
         """ Setter method for private instance attribute height.
 
-        Args: 
+        Args:e
             value (int): The height of an instance of Rectangle.
         """
         if type(value) is not int:
