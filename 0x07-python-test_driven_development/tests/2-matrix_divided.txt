@@ -1,0 +1,89 @@
+#2-matrix_divided.txt
+
+===========================
+Using 2-matrix_divided.py
+===========================
+
+Using the function ``matrix_divided(matrix, div)``.
+
+Usage
+=====
+
+The function returns a new matrix contining all elements of a `matrix`
+divided by `div`.
+
+First import the function from the 2-matrix_divided file:
+
+
+	>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+Then use it:
+
+
+	>>> matrix = [
+ 	...	[1, 2, 3],
+	...	[4, 5, 6]
+	... ]
+	>>> print(matrix_divided(matrix, 3))
+	[[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+
+NB: The quotients are rounded to two decimal places.
+
+The original matrix is left unchanged:
+
+	>>> print(matrix)
+	[[1, 2, 3], [4, 5, 6]]
+
+Exceptions
+==========
+
+==================
+Invalid ``matrix``
+==================
+
+The ``matrix`` parameter must be  must be a list of lists of ints or floats.
+Otherwise, a TypeError is raised:
+
+
+	>>> matrix = "a string"
+	>>> print(matrix_divided(matrix, 3))
+	Traceback (most recent call last):
+		...
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Every row of the ``matrix`` must have the same size:
+
+
+	>>> matrix = [
+	...	[1, 2, 3, 4],
+	...	[5, 6, 7]
+	... ]
+	>>> print(matrix_divided(matrix, 3))
+	Traceback (most recent call last):
+		...
+	TypeError: Each row of the matrix must have the same size
+
+================
+Invalid ``div``
+================
+
+The ``div`` must be an int or float.
+Otherwise a TypeError is raised.
+
+
+	>>> matrix = [
+    	...     [1, 2, 3],
+    	...     [4, 5, 6]
+    	... ]
+	>>> print(matrix_divided(matrix, "a string"))
+	Traceback (most recent call last):
+		...
+	TypeError: div must be a number
+
+
+``div`` can’t be equal to 0, otherwise raise a ZeroDivisionError.
+
+
+	>>> print(matrix_divided(matrix, 0))
+	Traceback (most recent call last):
+	ZeroDivisionError: division by zero

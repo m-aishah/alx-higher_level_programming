@@ -1,0 +1,40 @@
+#5-text_indentation.txt
+
+===========================
+Using 5-text_indentation.py
+===========================
+
+Using the function ``text_indentation(text)``
+
+Usage
+=====
+
+This function  prints a text with 2 new lines, 
+after each of these characters: ., ? and :
+
+First import the function from the file ``5-text_indentation``:
+
+
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
+    >>> text_indentation("Hello?")
+    Hello?
+    <BLANKLINE>
+
+
+No spaces are printed at the beginning or end of a line:
+
+    >>> text_indentation("   Hi.   How are you?")
+    Hi.
+    <BLANKLINE>
+    How are you?
+    <BLANKLINE>
+
+Exception
+=========
+
+The ``text`` must be a string. Otherwise, a TypeError is raised.
+
+
+    >>> text_indentation(7)
+    Traceback (most recent call last):
+    TypeError: text must be a string

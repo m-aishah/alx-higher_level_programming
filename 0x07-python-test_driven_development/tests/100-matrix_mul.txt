@@ -1,0 +1,100 @@
+#100-matrix_mul.txt
+
+======================
+Using 100-matrix_mul.p
+======================
+
+Using the function ``matrix_mul(m_a, m_b)``.
+
+Usage
+=====
+
+The function multiplies 2 matrices and returns the result.
+
+First import it:
+
+
+    >>> matrix_mul = __import__('100-matrix_mul').matrix_mul
+
+Then use it:
+
+
+    >>> m_a = [
+    ... [1, 2],
+    ... [3, 4],
+    ... ]
+    >>> m_b = m_a
+    >>> print(matrix_mul(m_a, m_b))
+    [[7, 10], [15, 22]]
+
+Exceptions
+==========
+
+Invalid Matrices
+================
+
+The ``m_a`` and ``m_b`` must be lists. Otherwise a TypeError is raised.
+
+
+    >>> print(matrix_mul("a string", [[1, 2]]))
+    Traceback (most recent call last):
+    TypeError: m_a must be a list
+
+    >>> print(matrix_mul([[1, 2]], "a atring"))
+    Traceback (most recent call last):
+    TypeError: m_b must be a list
+
+The matrices must be lists of lists
+
+
+    >>> print(matrix_mul([1, 2], [[3, 4]]))
+    Traceback (most recent call last):
+    TypeError: m_a must be a list of lists
+
+    >>> print(matrix_mul([[1, 2]], [3, 4]))
+    Traceback (most recent call last):
+    TypeError: m_b must be a list of lists
+
+The parameters must be list of lists containing integers or floats.
+
+
+
+    >>> print(matrix_mul([[1, "a string"]], [[3, 4]]))
+    Traceback (most recent call last):
+    TypeError: m_a should contain only integers or floats
+
+
+    >>> print(matrix_mul([[1, 2]], [[{"a dictionary": 1}, 8.8]]))
+    Traceback (most recent call last):
+    TypeError: m_b should contain only integers or floats
+
+
+The length of all rows of the matrices ``m_a`` and ``m_b`` must be equivalent.
+Otherwise, a TypeError is raised.
+
+
+    >>> m_a = [
+    ... [1, 2],
+    ... [3, 4, 5]
+    ... ]
+    >>> m_b = [
+    ... [1, 2],
+    ... [3, 4]
+    ... ]
+    >>> print(matrix_mul(m_a, m_b))
+    Traceback (most recent call last):
+    TypeError: each row of m_a must be of the same size
+
+
+    >>> m_a = [
+    ... [1, 2],
+    ... [3, 4]
+    ... ]
+    >>> m_b = [
+    ... [1, 2],
+    ... [3, 4, 5]
+    ... ]
+    >>> print(matrix_mul(m_a, m_b))
+    Traceback (most recent call last):
+    TypeError: each row of m_b must be of the same size
+
