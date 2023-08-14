@@ -1,0 +1,76 @@
+#7-base_geometry.txt
+
+========================
+Using 7-base_geometry.py
+========================
+
+This module contains a base class ``BaseGeometry``.
+
+Initialization
+--------------
+First import it:
+
+    >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+Intialization does not require any arguments.
+
+    >>> bg = BaseGeometry()
+
+
+
+Methods
+=======
+
+The ``area`` method
+-------------------
+This method is a public instance method with no implementation.
+
+    >>> bg.area()
+    Traceback (most recent call last):
+        ...
+    Exception: area() is not implemented
+
+The ``integer_validator`` method
+--------------------------------
+Also a public instance method that confims that a value is an integer.
+
+
+    >>> bg.integer_validator("my_int", 12)
+    
+
+The second argument must be an integer, else a TypeError is raised.
+
+    >>> bg.integer_validator("name", "Aishah")
+    Traceback (most recent call last):
+        ...
+    TypeError: name must be an integer
+
+    >>> bg.integer_validator("name", None)
+    Traceback (most recent call last):
+        ...
+    TypeError: name must be an integer
+
+It must also be > 0, otherwise a ValueError is raised.
+
+    >>> bg.integer_validator("age", 0)
+    Traceback (most recent call last):
+        ...
+    ValueError: age must be greater than 0
+
+
+    >>> bg.integer_validator("age", -5)
+    Traceback (most recent call last):
+        ...
+    ValueError: age must be greater than 0
+
+Other Exceptions
+----------------
+
+Both ``name`` and ``value`` must be provided. Otherwise a TypeError is raised.
+
+
+    >>> bg.integer_validator() # doctest: +NORMALIZE_WHITESPACE
+    Traceback (most recent call last):
+        ...
+    TypeError: integer_validator() missing 2 required positional arguments: 
+    'name' and 'value'
