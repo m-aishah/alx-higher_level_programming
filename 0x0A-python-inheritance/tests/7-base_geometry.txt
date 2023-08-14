@@ -15,7 +15,19 @@ First import it:
 Intialization does not require any arguments.
 
     >>> bg = BaseGeometry()
+    >>> type(bg)
+    <class '7-base_geometry.BaseGeometry'>
 
+    >>> print(bg) # doctest: +ELLIPSIS
+    <7-base_geometry.BaseGeometry object at ...>
+
+
+Trying to initialize with arguments results in a TypeError.
+
+    >>> bg = BaseGeometry("argument")
+    Traceback (most recent call last):
+        ...
+    TypeError: BaseGeometry() takes no arguments
 
 
 Methods
@@ -24,6 +36,10 @@ Methods
 The ``area`` method
 -------------------
 This method is a public instance method with no implementation.
+
+    >>> print(bg.area) # doctest: +ELLIPSIS, +NORMALIZE_WHITESPACE
+    <bound method BaseGeometry.area of <7-base_geometry.BaseGeometry 
+     object at...>>
 
     >>> bg.area()
     Traceback (most recent call last):
@@ -35,6 +51,13 @@ The ``integer_validator`` method
 Also a public instance method that confims that a value is an integer.
 
 
+    >>> print(bg.integer_validator) #doctest: +ELLIPSIS, +NORMALIZE_WHITESPACE
+    <bound method BaseGeometry.integer_validator of <7-base_geometry.BaseGeometry 
+    object at...>>
+
+
+If ``value`` is a valid integer, the method does nothing:
+
     >>> bg.integer_validator("my_int", 12)
     
 
@@ -44,6 +67,42 @@ The second argument must be an integer, else a TypeError is raised.
     Traceback (most recent call last):
         ...
     TypeError: name must be an integer
+
+--
+    >>> bg.integer_validator("name", (2, 4))
+    Traceback (most recent call last):
+        ...
+    TypeError: name must be an integer
+
+--
+
+    >>> bg.integer_validator("name", 4.56)
+    Traceback (most recent call last):
+        ...
+    TypeError: name must be an integer
+
+--
+
+    >>> bg.integer_validator("name", True)
+    Traceback (most recent call last):
+        ...
+    TypeError: name must be an integer
+
+--
+
+    >>> bg.integer_validator("name", [2, 4])
+    Traceback (most recent call last):
+        ...
+    TypeError: name must be an integer
+
+--
+
+    >>> bg.integer_validator("name", {'key': 23})
+    Traceback (most recent call last):
+        ...
+    TypeError: name must be an integer
+
+--
 
     >>> bg.integer_validator("name", None)
     Traceback (most recent call last):
