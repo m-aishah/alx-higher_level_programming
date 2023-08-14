@@ -133,3 +133,15 @@ Both ``name`` and ``value`` must be provided. Otherwise a TypeError is raised.
         ...
     TypeError: integer_validator() missing 2 required positional arguments: 
     'name' and 'value'
+
+    >>> bg.integer_validator(None) # doctest: +NORMALIZE_WHITESPACE
+    Traceback (most recent call last):
+        ...
+    TypeError: integer_validator() missing 1 required positional argument:
+    'value'
+
+It is assumed that ``name`` will be a string, however any other data type works the same:
+
+    >>> bg.integer_validator(('a', 'tuple'), (1, 2))
+    Traceback (most recent call last):
+    TypeError: ('a', 'tuple') must be an integer
