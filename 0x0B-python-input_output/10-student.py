@@ -20,7 +20,7 @@ class Student:
     def to_json(self, attrs=None):
         """Retrieve a dictionary representation of Student.
 
-        If attrs is a list of strings, only attribute names 
+        If attrs is a list of strings, only attribute names
         contained in this list must be retrieved.
 
         Args:
