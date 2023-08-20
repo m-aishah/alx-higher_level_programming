@@ -86,9 +86,66 @@ class Rectangle(Base):
 
     def display(self):
         '''Print a rectangle with # characters.'''
+        [print() for k in range (self.y)]
         for i in range (self.height):
+            [print(' ', end='') for l in range (self.x)]
             [print('#', end='') for j in range (self.width)]
             print()
 
-r1 = Rectangle(4, 6)
-r1.display()
+    def __str__(self):
+        string = '[Rectangle] (' + str(self.id) + ') ' + str(self.x)
+        string += '/' + str(self.y) + ' - ' + str(self.width)
+        string += '/' + str(self.height)
+        return string
+
+    def update(self, *args, **kwargs):
+        no_of_arguments = len(args)
+        a = 0
+
+        if args and no_of_arguments:
+            if no_of_arguments > a:
+                if args[0] is None:
+                    self.__init__(self.width, self.height, self.x, self.y)
+                else:
+                    self.id = args[0]
+                a += 1
+            if no_of_arguments > a:
+                self.width = args[1]
+                a += 1
+            if no_of_arguments > a:
+                self.height = args[2]
+                a += 1
+            if no_of_arguments > a:
+                self.x = args[3]
+                a += 1
+            if no_of_arguments > a:
+                self.y = args[4]
+        elif kwargs:
+            if 'id' in kwargs:
+                if kwargs['id'] is None:
+                    self.__init__(self.width, self.height, self.x, self.y)
+                else:
+                    self.id = kwargs['id']
+            if 'width' in kwargs:
+                self.width = kwargs['width']
+            if 'height' in kwargs:
+                self.height = kwargs['height']
+            if 'x' in kwargs:
+                self.x = kwargs['x']
+            if 'y' in kwargs:
+                self.y = kwargs['y']
+
+r1 = Rectangle(10, 10, 10, 10)
+print(r1)
+
+r1.update(height=1)
+print(r1)
+
+r1.update(width=1, x=2)
+print(r1)
+
+r1.update(y=1, width=2, x=3, id=89)
+print(r1)
+
+r1.update(x=1, height=2, y=3, width=4)
+print(r1)

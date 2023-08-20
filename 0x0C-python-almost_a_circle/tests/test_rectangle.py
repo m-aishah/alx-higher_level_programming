@@ -3,6 +3,7 @@
 import unittest
 import sys
 sys.path.append('/root/alx-higher_level_programming/0x0C-python-almost_a_circle/models')
+import io
 from rectangle import Rectangle
 
 
@@ -127,6 +128,38 @@ class TestRectangleClass(unittest.TestCase):
         '''Test the area method.'''
         r14 = Rectangle(2, 3, 1, 1)
         self.assertEqual(r14.area(), 6)
+
+
+class TestRectangle_output(unittest.TestCase):
+    '''Test the display and __str__ methods.'''
+
+    @staticmethod
+    def capture_stdout(rect, method):
+        '''Returns the output printed to the screen 
+        after using display or __str__.
+
+        Args:
+            rect (Rectangle): The rectangle to be printed.
+            method (str): The method to run on the rectangle.
+        Returns:
+        The text printed to the stdout.
+        '''
+        capture = io.StringIO()
+        sys.stdout = capture
+
+        if method == 'print':
+            print(rect)
+        else:
+            rect.display()
+        sys.stdout = sys.__stdout__
+        return capture
+
+    def test_print(self):
+        '''Test the __str__method.'''
+        r15 = Rectangle(4, 6, 2, 1, 12)
+        capture = TestRectangle_output.capture_stdout(r15, 'print')
+        expected = '[Rectangle] (12) 2/1 - 4/6\n'
+        self.assertEqual(capture.getvalue(), expected)
 
 
 if __name__ == '__main__':
