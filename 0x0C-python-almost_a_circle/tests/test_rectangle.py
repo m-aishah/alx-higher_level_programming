@@ -39,29 +39,29 @@ class TestRectangleClass(unittest.TestCase):
 
     def test_four_arguments(self):
         '''Try creating an instance of Rectangle with four arguments.'''
-        r5 = Rectangle(8, 10, -1, -2)
+        r5 = Rectangle(8, 10, 1, 2)
         self.assertEqual(r5.width, 8)
         self.assertEqual(r5.height, 10)
-        self.assertEqual(r5.x, -1)
-        self.assertEqual(r5.y, -2)
+        self.assertEqual(r5.x, 1)
+        self.assertEqual(r5.y, 2)
         self.assertTrue(r5.id is not None)
 
     def test_five_arguments(self):
         '''Create inatance of Rectangle with all five arguments provided.'''
-        r6 = Rectangle(12, 14, -6, 3, 24)
+        r6 = Rectangle(12, 14, 6, 3, 24)
         self.assertEqual(r6.width, 12)
         self.assertEqual(r6.height, 14)
-        self.assertEqual(r6.x, -6)
+        self.assertEqual(r6.x, 6)
         self.assertEqual(r6.y, 3)
         self.assertEqual(r6.id, 24)
 
     def test_string_id(self):
         '''Create an instance of Rectangle with an id that not an integer.'''
-        r13 = Rectangle(16, 18, 9, -4, 'a_string')
+        r13 = Rectangle(16, 18, 0, 4, 'a_string')
         self.assertEqual(r13.width, 16)
         self.assertEqual(r13.height, 18)
-        self.assertEqual(r13.x, 9)
-        self.assertEqual(r13.y, -4)
+        self.assertEqual(r13.x, 0)
+        self.assertEqual(r13.y, 4)
         self.assertEqual(r13.id, 'a_string')
 
     def test_invalid_width(self):
@@ -74,6 +74,16 @@ class TestRectangleClass(unittest.TestCase):
         with self.assertRaises(TypeError):
             r8 = Rectangle(2, 'not_an_integer', 1, 1)
 
+    def test_invalid_x(self):
+        '''Check that fails when the x coordinate is not an integer.'''
+        with self.assertRaises(TypeError):
+            r7 = Rectangle(2, 4, 'not_an_integer', 1)
+
+    def test_invalid_y(self):
+        '''Check that fails when the y coordinate is not an integer.'''
+        with self.assertRaises(TypeError):
+            r8 = Rectangle(2, 4, 1, 'not_an_integer')
+
     def test_negative_width(self):
         '''Check that fails when the width is negative.'''
         with self.assertRaises(ValueError):
@@ -84,10 +94,30 @@ class TestRectangleClass(unittest.TestCase):
         with self.assertRaises(ValueError):
             r10 = Rectangle(2, -5, 1, 2)
 
-    def test_negative_width_height(self):
+    def test_zero_width(self):
+        '''Check that fails when the width is 0.'''
+        with self.assertRaises(ValueError):
+            r9 = Rectangle(0, 4, 1, 1)
+
+    def test_zero_height(self):
+        '''Check that fails when the height is 0.'''
+        with self.assertRaises(ValueError):
+            r10 = Rectangle(2, 0, 1, 2)
+
+    def test_negative_x(self):
+        '''Check that fails when the x coordinate is negative.'''
+        with self.assertRaises(ValueError):
+            r9 = Rectangle(2, 4, -1, 1)
+
+    def test_negative_y(self):
+        '''Check that fails when the y coordinate is negative.'''
+        with self.assertRaises(ValueError):
+            r10 = Rectangle(2, 5, 1, -2)
+
+    def test_negative_arguments(self):
         '''Check that fails when the width and height is negative.'''
         with self.assertRaises(ValueError):
-            r11 = Rectangle(-2, -5, 4, 1, 1)
+            r11 = Rectangle(-2, -5, -3, -11, -1)
 
     def test_invalid_argument(self):
         with self.assertRaises(TypeError):
