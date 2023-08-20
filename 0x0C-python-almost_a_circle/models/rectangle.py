@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 '''Child class Rectangle.'''
+import sys
+sys.path.append('/root/alx-higher_level_programming/0x0C-python-almost_a_circle/models')
 from base import Base
 
 
@@ -81,3 +83,12 @@ class Rectangle(Base):
     def area(self):
         '''Return the area of the rectangle.'''
         return self.width * self.height
+
+    def display(self):
+        '''Print a rectangle with # characters.'''
+        for i in range (self.height):
+            [print('#', end='') for j in range (self.width)]
+            print()
+
+r1 = Rectangle(4, 6)
+r1.display()
