@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 '''Define a class called Square.'''
 import sys
-from rectangle import Rectangle
+from models.rectangle import Rectangle
 
 
 class Square(Rectangle):

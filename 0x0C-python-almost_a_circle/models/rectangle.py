@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 '''Child class Rectangle.'''
 import sys
-from base import Base
+from models.base import Base
 
 
 class Rectangle(Base):
