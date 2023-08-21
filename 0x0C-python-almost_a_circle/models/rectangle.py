@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 '''Child class Rectangle.'''
-from models.base import Base
+import sys
+from base import Base
 
 
 class Rectangle(Base):
@@ -146,11 +147,11 @@ class Rectangle(Base):
 
     def to_dictionary(self):
         '''Return the dictionary representation of a Rectangle.'''
+
         return {
-            'id':self.id, 
-            'width':self.width, 
-            'height':self.height, 
-            'x':self.x, 
-            'y':self.y
+            'id': self.id,
+            'width': self.width,
+            'height': self.height,
+            'x': self.x,
+            'y': self.y
         }
-        

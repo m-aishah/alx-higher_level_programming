@@ -2,10 +2,9 @@
 '''Unittest for class Rectangle.'''
 import unittest
 import sys
-sys.path.append('/root/alx-higher_level_programming/0x0C-python-almost_a_circle/models')
 import io
-from rectangle import Rectangle
-from base import Base
+from models.rectangle import Rectangle
+from models.base import Base
 
 
 class TestRectangleClass_init(unittest.TestCase):

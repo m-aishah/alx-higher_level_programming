@@ -1,12 +1,10 @@
 #!/usr/bin/python3
 """Unittest for Base class."""
-import sys
-sys.path.append('/root/alx-higher_level_programming/0x0C-python-almost_a_circle/models')
 import os
 import unittest
-from base import Base
-from rectangle import Rectangle
-from square import Square
+from models.base import Base
+from models.rectangle import Rectangle
+from models.square import Square
 
 
 class TestBaseClass(unittest.TestCase):
@@ -27,11 +25,12 @@ class TestBaseClass(unittest.TestCase):
         self.assertEqual(self.b4.id, 12)
         self.assertEqual(self.b5.id, 4)
 
+
 class TestBase_to_json_string(unittest.TestCase):
     '''Unittests for the to_json_string method.'''
 
     def test_to_json_string_rectangle_type(self):
-        '''Check that the method returns str if called with list of Rectangle dict.'''
+        '''Test method returns str if called with list of Rectangle dict.'''
         r = Rectangle(10, 7, 2, 8, 6)
         self.assertEqual(str, type(Base.to_json_string([r.to_dictionary()])))
 
@@ -48,7 +47,7 @@ class TestBase_to_json_string(unittest.TestCase):
         self.assertTrue(len(Base.to_json_string(list_dicts)) == 106)
 
     def test_to_json_string_square_type(self):
-        '''Check that the method returns a string when called with Square dictionary.'''
+        '''Check the method returns str when called with Square dictionary.'''
         s = Square(10, 2, 3, 4)
         self.assertEqual(str, type(Base.to_json_string([s.to_dictionary()])))
 
@@ -170,6 +169,7 @@ class TestBase_save_to_file(unittest.TestCase):
         with self.assertRaises(TypeError):
             Square.save_to_file([], 1)
 
+
 class TestBase_from_json_string(unittest.TestCase):
     '''Unittests for static method - from_json_string.'''
 
@@ -231,6 +231,125 @@ class TestBase_from_json_string(unittest.TestCase):
         '''Test the method with more than one arguments.'''
         with self.assertRaises(TypeError):
             Base.from_json_string([], 1)
+
+
+class TestBase_create(unittest.TestCase):
+    '''Unittests for the class method - create.'''
+
+    def test_create_rectangle_original(self):
+        r1 = Rectangle(3, 5, 1, 2, 7)
+        r1_dictionary = r1.to_dictionary()
+        r2 = Rectangle.create(**r1_dictionary)
+        self.assertEqual("[Rectangle] (7) 1/2 - 3/5", str(r1))
+
+    def test_create_rectangle_new(self):
+        r1 = Rectangle(3, 5, 1, 2, 7)
+        r1_dictionary = r1.to_dictionary()
+        r2 = Rectangle.create(**r1_dictionary)
+        self.assertEqual("[Rectangle] (7) 1/2 - 3/5", str(r2))
+
+    def test_create_rectangle_is(self):
+        r1 = Rectangle(3, 5, 1, 2, 7)
+        r1_dictionary = r1.to_dictionary()
+        r2 = Rectangle.create(**r1_dictionary)
+        self.assertIsNot(r1, r2)
+
+    def test_create_rectangle_equals(self):
+        r1 = Rectangle(3, 5, 1, 2, 7)
+        r1_dictionary = r1.to_dictionary()
+        r2 = Rectangle.create(**r1_dictionary)
+        self.assertNotEqual(r1, r2)
+
+    def test_create_square_original(self):
+        s1 = Square(3, 5, 1, 7)
+        s1_dictionary = s1.to_dictionary()
+        s2 = Square.create(**s1_dictionary)
+        self.assertEqual("[Square] (7) 5/1 - 3", str(s1))
+
+    def test_create_square_new(self):
+        s1 = Square(3, 5, 1, 7)
+        s1_dictionary = s1.to_dictionary()
+        s2 = Square.create(**s1_dictionary)
+        self.assertEqual("[Square] (7) 5/1 - 3", str(s2))
+
+    def test_create_square_is(self):
+        s1 = Square(3, 5, 1, 7)
+        s1_dictionary = s1.to_dictionary()
+        s2 = Square.create(**s1_dictionary)
+        self.assertIsNot(s1, s2)
+
+    def test_create_square_equals(self):
+        s1 = Square(3, 5, 1, 7)
+        s1_dictionary = s1.to_dictionary()
+        s2 = Square.create(**s1_dictionary)
+        self.assertNotEqual(s1, s2)
+
+
+class TestBase_load_from_file(unittest.TestCase):
+    '''Test the class method - load_from_file.'''
+
+    @classmethod
+    def tearDown(self):
+        """Delete any created files."""
+        try:
+            os.remove("Rectangle.json")
+        except IOError:
+            pass
+        try:
+            os.remove("Square.json")
+        except IOError:
+            pass
+
+    def test_load_from_file_first_rectangle(self):
+        r1 = Rectangle(10, 7, 2, 8, 1)
+        r2 = Rectangle(2, 4, 5, 6, 2)
+        Rectangle.save_to_file([r1, r2])
+        list_rectangles_output = Rectangle.load_from_file()
+        self.assertEqual(str(r1), str(list_rectangles_output[0]))
+
+    def test_load_from_file_second_rectangle(self):
+        r1 = Rectangle(10, 7, 2, 8, 1)
+        r2 = Rectangle(2, 4, 5, 6, 2)
+        Rectangle.save_to_file([r1, r2])
+        list_rectangles_output = Rectangle.load_from_file()
+        self.assertEqual(str(r2), str(list_rectangles_output[1]))
+
+    def test_load_from_file_rectangle_types(self):
+        r1 = Rectangle(10, 7, 2, 8, 1)
+        r2 = Rectangle(2, 4, 5, 6, 2)
+        Rectangle.save_to_file([r1, r2])
+        output = Rectangle.load_from_file()
+        self.assertTrue(all(type(obj) == Rectangle for obj in output))
+
+    def test_load_from_file_first_square(self):
+        s1 = Square(5, 1, 3, 3)
+        s2 = Square(9, 5, 2, 3)
+        Square.save_to_file([s1, s2])
+        list_squares_output = Square.load_from_file()
+        self.assertEqual(str(s1), str(list_squares_output[0]))
+
+    def test_load_from_file_second_square(self):
+        s1 = Square(5, 1, 3, 3)
+        s2 = Square(9, 5, 2, 3)
+        Square.save_to_file([s1, s2])
+        list_squares_output = Square.load_from_file()
+        self.assertEqual(str(s2), str(list_squares_output[1]))
+
+    def test_load_from_file_square_types(self):
+        s1 = Square(5, 1, 3, 3)
+        s2 = Square(9, 5, 2, 3)
+        Square.save_to_file([s1, s2])
+        output = Square.load_from_file()
+        self.assertTrue(all(type(obj) == Square for obj in output))
+
+    def test_load_from_file_no_file(self):
+        output = Square.load_from_file()
+        self.assertEqual([], output)
+
+    def test_load_from_file_more_than_one_arg(self):
+        with self.assertRaises(TypeError):
+            Base.load_from_file([], 1)
+
 
 if __name__ == '__main__':
     unittest.main()

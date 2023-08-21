@@ -3,10 +3,9 @@
 import unittest
 import io
 import sys
-sys.path.append('/root/alx-higher_level_programming/0x0C-python-almost_a_circle/models')
-from square import Square
-from rectangle import Rectangle
-from base import Base
+from models.square import Square
+from models.rectangle import Rectangle
+from models.base import Base
 
 
 class TestSquare_init(unittest.TestCase):

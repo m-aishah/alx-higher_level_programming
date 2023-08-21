@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 '''Define a class called Square.'''
 import sys
-sys.path.append('/root/alx-higher_level_programming/0x0C-python-almost_a_circle/models')
 from rectangle import Rectangle
 
 
@@ -83,4 +82,3 @@ class Square(Rectangle):
             'x': self.x,
             'y': self.y
         }
-
