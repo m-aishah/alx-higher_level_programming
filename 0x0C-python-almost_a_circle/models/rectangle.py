@@ -1,8 +1,6 @@
 #!/usr/bin/python3
 '''Child class Rectangle.'''
-import sys
-sys.path.append('/root/alx-higher_level_programming/0x0C-python-almost_a_circle/models')
-from base import Base
+from models.base import Base
 
 
 class Rectangle(Base):
@@ -86,10 +84,10 @@ class Rectangle(Base):
 
     def display(self):
         '''Print a rectangle with # characters.'''
-        [print() for k in range (self.y)]
-        for i in range (self.height):
-            [print(' ', end='') for l in range (self.x)]
-            [print('#', end='') for j in range (self.width)]
+        [print() for k in range(self.y)]
+        for i in range(self.height):
+            [print(' ', end='') for x in range(self.x)]
+            [print('#', end='') for y in range(self.width)]
             print()
 
     def __str__(self):
@@ -99,6 +97,17 @@ class Rectangle(Base):
         return string
 
     def update(self, *args, **kwargs):
+        '''Update the rectangle.
+
+        Args:
+            *args (ints): New attribute values.
+                - 1st argument represents id attribute
+                - 2nd argument represents width attribute
+                - 3rd argument represent height attribute
+                - 4th argument represents x attribute
+                - 5th argument represents y attribute
+            **kwargs (dict): New key/value pairs of attributes
+        '''
         no_of_arguments = len(args)
         a = 0
 
@@ -135,17 +144,13 @@ class Rectangle(Base):
             if 'y' in kwargs:
                 self.y = kwargs['y']
 
-r1 = Rectangle(10, 10, 10, 10)
-print(r1)
-
-r1.update(height=1)
-print(r1)
-
-r1.update(width=1, x=2)
-print(r1)
-
-r1.update(y=1, width=2, x=3, id=89)
-print(r1)
-
-r1.update(x=1, height=2, y=3, width=4)
-print(r1)
+    def to_dictionary(self):
+        '''Return the dictionary representation of a Rectangle.'''
+        return {
+            'id':self.id, 
+            'width':self.width, 
+            'height':self.height, 
+            'x':self.x, 
+            'y':self.y
+        }
+        
