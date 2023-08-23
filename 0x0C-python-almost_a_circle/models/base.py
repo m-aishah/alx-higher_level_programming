@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Define class Base."""
 import json
+import csv
 
 
 class Base:
@@ -87,3 +88,19 @@ class Base:
                         for dictionary in list_dictionaries]
         except IOError:
             return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        '''Serializes in CSV.'''
+        filename = cls.__name__ + '.csv'
+        with open(filename, 'w', encoding='utf-8') as csv_file:
+            if list_objs is None or list_objs == []:
+                csv_file.write("[]")
+            else:
+                if cls.__name__ == "Rectangle":
+                    field_name = ["id", "width", "height", "x", "y"]
+                else:
+                    field_name = ["id", "size", "x", "y"]
+                csv_writer = csv.DictWriter(csv_file, fieldnames=field_name)
+                for obj in list_objs:
+                    csv_writer.writerow(obj.to_dictionary())
