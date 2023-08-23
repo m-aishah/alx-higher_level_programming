@@ -104,3 +104,20 @@ class Base:
                 csv_writer = csv.DictWriter(csv_file, fieldnames=field_name)
                 for obj in list_objs:
                     csv_writer.writerow(obj.to_dictionary())
+
+    @classmethod
+    def load_from_file_csv(cls):
+        '''Deserializing in CSV.'''
+        filename = cls.__name__ + '.csv'
+        try:
+            with open(filename, 'r', encoding='utf-8', newline='') as csv_file:
+                if cls.__name__ == 'Rectangle':
+                    field_name = ['id', 'width', 'height', 'x', 'y']
+                else:
+                    field_name = ['id', 'size', 'x', 'y']
+                list_dict = csv.DictReader(csv_file, fieldnames=field_name)
+                list_dict = [dict([k, int(v)] for k, v in d.items())
+                                for d in list_dict]
+                return [cls.create(**d) for d in list_dict]
+        except IOError:
+            return []
