@@ -350,9 +350,10 @@ class TestBase_load_from_file(unittest.TestCase):
         with self.assertRaises(TypeError):
             Base.load_from_file([], 1)
 
+
 class TestBase_save_to_file_csv(unittest.TestCase):
     '''Unittest for the class method - save_to_file_csv.'''
-    
+
     @classmethod
     def tearDown(self):
         """Delete any created files."""
@@ -426,6 +427,7 @@ class TestBase_save_to_file_csv(unittest.TestCase):
     def test_save_to_file_csv_more_than_one_arg(self):
         with self.assertRaises(TypeError):
             Square.save_to_file_csv([], 1)
+
 
 class TestBase_load_from_file_csv(unittest.TestCase):
     '''Unittests for class method - load_from_file_csv.'''
