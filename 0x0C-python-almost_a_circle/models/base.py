@@ -2,6 +2,7 @@
 """Define class Base."""
 import json
 import csv
+import turtle
 
 
 class Base:
@@ -164,4 +165,4 @@ class Base:
                 obj.left(90)
             obj.hideturtle()
 
-        objle.exitonclick()
+        turtle.exitonclick()
