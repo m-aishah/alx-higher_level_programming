@@ -4,7 +4,7 @@
 #include "lists.h"
 
 /**
- * insert_node - A functon that inserts
+ * insert_node - A function that inserts
  *		a number into a sorted singly linked list
  * @head: pointer to pointer of first node of listint_t list
  * @number: integer to be included in new node
