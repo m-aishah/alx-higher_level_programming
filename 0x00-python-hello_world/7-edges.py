@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""Extracts substrings from a variable and prints them."""
 word = "Holberton"
 word_first_3 = word[:3]
 word_last_2 = word[-2:]
