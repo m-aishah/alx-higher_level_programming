@@ -11,7 +11,7 @@ class Base:
     __nb_objects = 0
 
     def __init__(self, id=None):
-        '''Initailize the Base class.'''
+        '''Initialize the Base class.'''
         if id is not None:
             self.id = id
         else:
@@ -58,8 +58,7 @@ class Base:
         '''
         if json_string is None or json_string == '[]':
             return []
-        else:
-            return json.loads(json_string)
+        return json.loads(json_string)
 
     @classmethod
     def create(cls, **dictionary):

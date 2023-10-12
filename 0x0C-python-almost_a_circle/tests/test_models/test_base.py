@@ -8,7 +8,7 @@ from models.square import Square
 
 
 class TestBaseClass(unittest.TestCase):
-    """Unittests for Base class."""
+    """Unittest for Base class."""
 
     def setUp(self):
         self.b1 = Base()
@@ -27,7 +27,7 @@ class TestBaseClass(unittest.TestCase):
 
 
 class TestBase_to_json_string(unittest.TestCase):
-    '''Unittests for the to_json_string method.'''
+    '''Unittest for the to_json_string method.'''
 
     def test_to_json_string_rectangle_type(self):
         '''Test method returns str if called with list of Rectangle dict.'''
@@ -83,7 +83,7 @@ class TestBase_to_json_string(unittest.TestCase):
 
 
 class TestBase_save_to_file(unittest.TestCase):
-    '''Unittests for the class method - save_to_file.'''
+    '''Unittest for the class method - save_to_file.'''
 
     @classmethod
     def tearDown(self):
@@ -105,7 +105,7 @@ class TestBase_save_to_file(unittest.TestCase):
         '''Test the method with a list of two rectangles.'''
         r = Rectangle(10, 7, 2, 8, 5)
         Rectangle.save_to_file([r])
-        with open("Rectangle.json", "r") as f:
+        with open("Rectangle.json", "r", encoding='utf-8') as f:
             self.assertTrue(len(f.read()) == 53)
 
     def test_save_to_file_two_rectangles(self):
@@ -113,14 +113,14 @@ class TestBase_save_to_file(unittest.TestCase):
         r1 = Rectangle(10, 7, 2, 8, 5)
         r2 = Rectangle(2, 4, 1, 2, 3)
         Rectangle.save_to_file([r1, r2])
-        with open("Rectangle.json", "r") as f:
+        with open("Rectangle.json", "r", encoding='utf-8') as f:
             self.assertTrue(len(f.read()) == 105)
 
     def test_save_to_file_one_square(self):
         '''Test the method with a list of one square.'''
         s = Square(10, 7, 2, 8)
         Square.save_to_file([s])
-        with open("Square.json", "r") as f:
+        with open("Square.json", "r", encoding='utf-8') as f:
             self.assertTrue(len(f.read()) == 39)
 
     def test_save_to_file_two_squares(self):
@@ -135,28 +135,28 @@ class TestBase_save_to_file(unittest.TestCase):
         '''Ensure the filename is correct - <class_name>.json'''
         s = Square(10, 7, 2, 8)
         Base.save_to_file([s])
-        with open("Base.json", "r") as f:
+        with open("Base.json", "r", encoding='utf-8') as f:
             self.assertTrue(len(f.read()) == 39)
 
     def test_save_to_file_overwrite(self):
-        ''' Check that the method overites the file.'''
+        ''' Check that the method overwrites the file.'''
         s = Square(9, 2, 39, 2)
         Square.save_to_file([s])
         s = Square(10, 7, 2, 8)
         Square.save_to_file([s])
-        with open("Square.json", "r") as f:
+        with open("Square.json", "r", encoding='utf-8') as f:
             self.assertTrue(len(f.read()) == 39)
 
     def test_save_to_file_None(self):
         '''Test the method with None.'''
         Square.save_to_file(None)
-        with open("Square.json", "r") as f:
+        with open("Square.json", "r", encoding='utf-8') as f:
             self.assertEqual("[]", f.read())
 
     def test_save_to_file_empty_list(self):
         '''Test the method with an empty list.'''
         Square.save_to_file([])
-        with open("Square.json", "r") as f:
+        with open("Square.json", "r", encoding='utf-8') as f:
             self.assertEqual("[]", f.read())
 
     def test_save_to_file_no_args(self):
@@ -171,7 +171,7 @@ class TestBase_save_to_file(unittest.TestCase):
 
 
 class TestBase_from_json_string(unittest.TestCase):
-    '''Unittests for static method - from_json_string.'''
+    '''Unittest for static method - from_json_string.'''
 
     def test_from_json_string_return_type(self):
         '''Check that the method returns a list.'''
@@ -234,7 +234,7 @@ class TestBase_from_json_string(unittest.TestCase):
 
 
 class TestBase_create(unittest.TestCase):
-    '''Unittests for the class method - create.'''
+    '''Unittest for the class method - create.'''
 
     def test_create_rectangle_original(self):
         r1 = Rectangle(3, 5, 1, 2, 7)
@@ -430,7 +430,8 @@ class TestBase_save_to_file_csv(unittest.TestCase):
 
 
 class TestBase_load_from_file_csv(unittest.TestCase):
-    '''Unittests for class method - load_from_file_csv.'''
+    '''Unittest for class method - load_from_file_csv.'''
+
     @classmethod
     def tearDown(self):
         """Delete any created files."""
