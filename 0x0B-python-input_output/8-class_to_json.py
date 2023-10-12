@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Contains a class-to-JSON file."""
+"""Returns a dictionary representation of a Python object."""
 
 
 def class_to_json(obj):

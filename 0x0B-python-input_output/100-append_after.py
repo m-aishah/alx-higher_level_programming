@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Contains a text file insertion function."""
+"""Formats a text file according to some criteria."""
 
 
 def append_after(filename="", search_string="", new_string=""):

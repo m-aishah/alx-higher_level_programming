@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Contains a write object to file function."""
+"""Writes an object to a file."""
 import json
 
 

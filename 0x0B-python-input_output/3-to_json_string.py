@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Contain a function that returns the json representation of a string."""
+"""Returns the JSON representation of a Python object."""
 import json
 
 

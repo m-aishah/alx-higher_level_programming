@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Contains function to load, add and save arguments into a file."""
+"""Loads, adds and saves arguments into a file."""
 import sys
 
 

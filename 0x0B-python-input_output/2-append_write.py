@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Contain a function that appends to the of a text file."""
+"""Appends to the end of a text file."""
 
 
 def append_write(filename="", text=""):
