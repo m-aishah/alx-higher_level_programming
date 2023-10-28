@@ -20,6 +20,9 @@ if __name__ == "__main__":
     # Instantiate a session
     session = Session()
 
-    for state in session.query(State).order_by(State.id):
-        if "a" in state.name:
-            print("{}: {}".format(state.id, state.name))
+    state = session.query(State).filter(State.name == sys.argv[4]).first()
+
+    if state:
+        print("{}".format(state.id))
+    else:
+        print("Not found")
