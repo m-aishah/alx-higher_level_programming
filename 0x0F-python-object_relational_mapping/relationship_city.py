@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-""" Contains City class (which links to the MySQL table- cities). """
+
+""" Links to the MySQL table cities. """
 
 from sqlalchemy import Column, ForeignKey, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
@@ -8,11 +9,12 @@ Base = declarative_base()
 
 
 class City(Base):
-    """Links to cities table of a MySQL database.
+    """Represents a city for a MySQL database.
 
-    __tablename__ (str): The name of the table.
-    id (int): Primary key, unique id of a state.
-    name (str): The name of a city.
+    Attributes:
+        id (sqlalchemy.Column): The city's id.
+        name (sqlalchemy.Column): The city's name.
+        state_id (sqlalchemy.Column): The city's state id.
     """
     __tablename__ = "cities"
     id = Column(Integer, primary_key=True)
