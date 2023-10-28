@@ -5,7 +5,7 @@ Deletes all State objects from the database hbtn_0e_6_usa,
 """
 
 import sys
-from model_state import Base, State
+from model_state import State
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
@@ -23,5 +23,4 @@ if __name__ == "__main__":
     for state in session.query(State):
         if "a" in state.name:
             session.delete(state)
-
     session.commit()
