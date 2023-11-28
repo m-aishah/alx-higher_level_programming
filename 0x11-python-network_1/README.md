@@ -84,4 +84,13 @@ For this project, I learnt two python packages for sending requests to servers o
 
 	- Usage: ./8-json_api.py [<letter>]
 
-	- File: [8-json_api.py]()
+	- File: [8-json_api.py](https://github.com/m-aishah/alx-higher_level_programming/blob/master/0x11-python-network_1/8-json_api.py)
+
+
+- Task 9 - My GitHub!
+
+	- Dscription: Write a Python script that takes your GitHub credentials (username and password) and uses the GitHub API to display your id
+
+	- Usage: ./10-my_github.py <username> <password>
+
+	- File: 10-my_github.py
