@@ -93,4 +93,19 @@ For this project, I learnt two python packages for sending requests to servers o
 
 	- Usage: ./10-my_github.py <username> <password>
 
-	- File: 10-my_github.py
+	- File: [10-my_github.py](https://github.com/m-aishah/alx-higher_level_programming/blob/master/0x11-python-network_1/10-my_github.py)
+
+
+- Task 10 - Time for an interview!
+
+	- Description: The Holberton School staff evaluates candidates applying for a back-end position with multiple technical challenges, like this one:
+
+'''bash
+Please list 10 commits (from the most recent to oldest) of the repository “rails” by the user “rails”
+You must use the GitHub API, here is the documentation https://developer.github.com/v3/repos/commits/
+Print all commits by: `<sha>: <author name>` (one by line)
+'''
+
+	- Usage: ./100-github_commits.py <repository_name> <owner>
+
+	- File 100-github_commits.py
