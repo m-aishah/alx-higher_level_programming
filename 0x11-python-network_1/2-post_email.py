@@ -1,5 +1,8 @@
 #!/usr/bin/python3
-''' Sends a POST request to a specified URL with an email as a parameter. '''
+''' Sends a POST request to a specified URL with an email as a parameter.
+
+Usage: ./2-post_email.py <URL>
+'''
 import sys
 import urllib.request
 import urllib.parse

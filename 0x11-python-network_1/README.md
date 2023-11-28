@@ -24,4 +24,11 @@ For this project, I learnt two python packages for sending requests to servers o
 	
 	- Description: Write a Python script that takes in a URL and an email, sends a POST request to the passed URL with the email as a parameter, and displays the body of the response (decoded in utf-8)
 
-	- File: [2-post_email.py]()
+	- File: [2-post_email.py](https://github.com/m-aishah/alx-higher_level_programming/blob/master/0x11-python-network_1/2-post_email.py)
+
+
+- Task 3 - Error code #0
+
+	- Description: Write a Python script that takes in a URL, sends a request to the URL and displays the body of the response (decoded in utf-8).
+
+	- File: [3-error_code.py]()
