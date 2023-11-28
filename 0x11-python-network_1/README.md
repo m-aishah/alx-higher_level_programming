@@ -31,4 +31,11 @@ For this project, I learnt two python packages for sending requests to servers o
 
 	- Description: Write a Python script that takes in a URL, sends a request to the URL and displays the body of the response (decoded in utf-8).
 
-	- File: [3-error_code.py]()
+	- File: [3-error_code.py](https://github.com/m-aishah/alx-higher_level_programming/blob/master/0x11-python-network_1/3-error_code.py)
+
+
+- Task 4 - What's my status? #1
+
+	- Description: Write a Python script that fetches https://alx-intranet.hbtn.io/status
+
+	- File: [4-hbtn_status.py]()
