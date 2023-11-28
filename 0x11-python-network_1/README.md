@@ -66,4 +66,13 @@ For this project, I learnt two python packages for sending requests to servers o
 
 	- Usage: ./6-post_email.py <URL> <email>
 
-	- File: [6-post_email.py]()
+	- File: [6-post_email.py](https://github.com/m-aishah/alx-higher_level_programming/blob/master/0x11-python-network_1/6-post_email.py)
+
+
+- Task 7 - Error code #1
+
+	- Description: Write a Python script that takes in a URL, sends a request to the URL and displays the body of the response
+
+	- Usage: ./7-error_code.py <URL>
+
+	- File: [7-error_code.py]()
