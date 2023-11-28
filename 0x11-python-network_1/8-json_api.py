@@ -4,7 +4,6 @@
 
 Usage: ./8-json_api.py <letter>
 '''
-import json
 import requests
 import sys
 
