@@ -75,4 +75,13 @@ For this project, I learnt two python packages for sending requests to servers o
 
 	- Usage: ./7-error_code.py <URL>
 
-	- File: [7-error_code.py]()
+	- File: [7-error_code.py](https://github.com/m-aishah/alx-higher_level_programming/blob/master/0x11-python-network_1/7-error_code.py)
+
+
+- Task 8 - Search API
+
+	- Description: Write a Python script that takes in a letter and sends a POST request to http://0.0.0.0:5000/search_user with the letter as a parameter.
+
+	- Usage: ./8-json_api.py [<letter>]
+
+	- File: [8-json_api.py]()
