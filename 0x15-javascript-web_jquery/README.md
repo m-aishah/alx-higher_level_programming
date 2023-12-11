@@ -65,3 +65,9 @@ This project focuses on mastering essential concepts in front-end development, s
 - Description: Write a JavaScript script that fetches from https://hellosalut.stefanbohacek.dev/?lang=fr and displays the value of hello from that fetch in the HTML tag DIV#hello.
 
 - File: [9-script.js](./9-script.js)
+
+<b>10. No jQuery - document loaded</b>
+
+- Description: Write a JavaScript script that updates the text color of the <header> element to red (#FF0000):
+
+- File: [100-script.js](./100-script.js)
