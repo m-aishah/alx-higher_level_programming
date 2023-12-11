@@ -53,3 +53,9 @@ This project focuses on mastering essential concepts in front-end development, s
 - Description: Write a JavaScript script that fetches the character name from this URL: https://swapi-api.alx-tools.com/api/people/5/?format=json
 
 - File: [7-script.js](./7-script.js)
+
+<b>8. Star Wars movies</b>
+
+- Description: Write a JavaScript script that fetches and lists the title for all movies by using this URL: https://swapi-api.alx-tools.com/api/films/?format=json
+
+- File: [8-script.js](./8-script.js)
