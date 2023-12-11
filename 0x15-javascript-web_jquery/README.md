@@ -71,3 +71,9 @@ This project focuses on mastering essential concepts in front-end development, s
 - Description: Write a JavaScript script that updates the text color of the <header> element to red (#FF0000):
 
 - File: [100-script.js](./100-script.js)
+
+<b>11. List, add, remove</b>
+
+- Description: Write a JavaScript script that adds, removes and clears LI elements from a list when the user clicks.
+
+- File: [101-script-js](./101-script-js)
