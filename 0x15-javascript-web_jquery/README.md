@@ -83,3 +83,9 @@ This project focuses on mastering essential concepts in front-end development, s
 - Description: Write a JavaScript script that fetches and prints how to say “Hello” depending on the language
 
 - File: [102-script-js](./102-script-js)
+
+<b>13.And press ENTER</b>
+
+- Description: Write a JavaScript script that fetches and prints how to say “Hello” depending on the language
+
+- File: [103-script.js](./103-script.js)
