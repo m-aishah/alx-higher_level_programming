@@ -47,3 +47,9 @@ This project focuses on mastering essential concepts in front-end development, s
 - Description: Write a JavaScript script that updates the text of the <header> element to New Header!!! when the user clicks on DIV#update_header
 
 - File: [6-script.js](./6-script.js)
+
+<b>7. Star wars character</b>
+
+- Description: Write a JavaScript script that fetches the character name from this URL: https://swapi-api.alx-tools.com/api/people/5/?format=json
+
+- File: [7-script.js](./7-script.js)
