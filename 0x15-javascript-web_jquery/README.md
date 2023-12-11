@@ -77,3 +77,9 @@ This project focuses on mastering essential concepts in front-end development, s
 - Description: Write a JavaScript script that adds, removes and clears LI elements from a list when the user clicks.
 
 - File: [101-script-js](./101-script-js)
+
+<b>12.Say hello to everybody!</b>
+
+- Description: Write a JavaScript script that fetches and prints how to say “Hello” depending on the language
+
+- File: [102-script-js](./102-script-js)
