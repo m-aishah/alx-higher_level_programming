@@ -59,3 +59,9 @@ This project focuses on mastering essential concepts in front-end development, s
 - Description: Write a JavaScript script that fetches and lists the title for all movies by using this URL: https://swapi-api.alx-tools.com/api/films/?format=json
 
 - File: [8-script.js](./8-script.js)
+
+<b>9. Say Hello!</b>
+
+- Description: Write a JavaScript script that fetches from https://hellosalut.stefanbohacek.dev/?lang=fr and displays the value of hello from that fetch in the HTML tag DIV#hello.
+
+- File: [9-script.js](./9-script.js)
